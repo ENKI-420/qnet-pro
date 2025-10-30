@@ -1,0 +1,116 @@
+{
+  "info": {
+    "name": "QNet Demo API",
+    "_postman_id": "qnet-demo-collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Seed",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/seed",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "seed"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Issue",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"holder_name\": \"Charlie Tester\", \"initial_balance\": 4200.0}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/issue",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "issue"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Txn (sample)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"card_id\": \"REPLACE\", \"amount\": 45.67, \"merchant\": \"Starbucks\", \"pin\": \"1234\"}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/txn",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "txn"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Analytics",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/analytics",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "analytics"
+          ]
+        }
+      }
+    }
+  ]
+}

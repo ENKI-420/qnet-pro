@@ -1,0 +1,30 @@
+{
+  "title": "QNet API \u2014 Ops",
+  "panels": [
+    {
+      "type": "graph",
+      "title": "Requests/sec",
+      "targets": [
+        {
+          "expr": "rate(qnet_requests_total[1m])",
+          "legendFormat": "{{path}} {{method}} {{status}}"
+        }
+      ]
+    },
+    {
+      "type": "graph",
+      "title": "Latency (p50/p90)",
+      "targets": [
+        {
+          "expr": "histogram_quantile(0.5, sum(rate(qnet_request_latency_seconds_bucket[1m])) by (le))",
+          "legendFormat": "p50"
+        },
+        {
+          "expr": "histogram_quantile(0.9, sum(rate(qnet_request_latency_seconds_bucket[1m])) by (le))",
+          "legendFormat": "p90"
+        }
+      ]
+    }
+  ],
+  "schemaVersion": 37
+}

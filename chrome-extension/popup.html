@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DNALang Quantum IDE</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 600px;
+      height: 500px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0a0a;
+      color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      padding: 12px 16px;
+      background: #141414;
+      border-bottom: 1px solid #2a2a2a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .logo svg {
+      width: 20px;
+      height: 20px;
+      color: #a78bfa;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 4px;
+      padding: 8px 16px;
+      background: #0f0f0f;
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    .tab {
+      padding: 6px 12px;
+      font-size: 12px;
+      background: transparent;
+      border: none;
+      color: #888;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+
+    .tab:hover {
+      background: #1a1a1a;
+      color: #f5f5f5;
+    }
+
+    .tab.active {
+      background: #2a2a2a;
+      color: #f5f5f5;
+    }
+
+    .content {
+      flex: 1;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tab-content {
+      display: none;
+      flex: 1;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .tab-content.active {
+      display: flex;
+    }
+
+    .editor-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .editor-toolbar {
+      padding: 8px 16px;
+      background: #0f0f0f;
+      border-bottom: 1px solid #2a2a2a;
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn {
+      padding: 6px 12px;
+      font-size: 12px;
+      background: #a78bfa;
+      color: #0a0a0a;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      background: #9370db;
+    }
+
+    .btn-secondary {
+      background: #2a2a2a;
+      color: #f5f5f5;
+    }
+
+    .btn-secondary:hover {
+      background: #3a3a3a;
+    }
+
+    .editor {
+      flex: 1;
+      padding: 16px;
+      background: #0a0a0a;
+      overflow: auto;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      color: #f5f5f5;
+      border: none;
+      outline: none;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      line-height: 1.5;
+      resize: none;
+    }
+
+    .output {
+      flex: 1;
+      padding: 16px;
+      background: #0a0a0a;
+      overflow: auto;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      line-height: 1.6;
+      color: #888;
+    }
+
+    .output.success {
+      color: #4ade80;
+    }
+
+    .output.error {
+      color: #f87171;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      padding: 16px;
+    }
+
+    .metric-card {
+      background: #141414;
+      border: 1px solid #2a2a2a;
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .metric-label {
+      font-size: 11px;
+      color: #888;
+      margin-bottom: 4px;
+    }
+
+    .metric-value {
+      font-size: 20px;
+      font-weight: 600;
+      color: #a78bfa;
+    }
+
+    .visualization {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .viz-card {
+      background: #141414;
+      border: 1px solid #2a2a2a;
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .viz-title {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .viz-placeholder {
+      height: 100px;
+      background: #0f0f0f;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #555;
+      font-size: 11px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+      <span>DNALang IDE</span>
+    </div>
+    <button class="btn btn-secondary" id="settingsBtn">Settings</button>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="editor">Editor</button>
+    <button class="tab" data-tab="output">Output</button>
+    <button class="tab" data-tab="metrics">Metrics</button>
+    <button class="tab" data-tab="visualization">Visualization</button>
+  </div>
+
+  <div class="content">
+    <div class="tab-content active" id="editor">
+      <div class="editor-container">
+        <div class="editor-toolbar">
+          <button class="btn" id="runBtn">Run Code</button>
+          <button class="btn btn-secondary" id="clearBtn">Clear</button>
+          <button class="btn btn-secondary" id="exampleBtn">Load Example</button>
+        </div>
+        <div class="editor">
+          <textarea id="codeEditor" placeholder="Write your DNALang code here...">ORGANISM QuickTest
+{
+  DNA {
+    domain: "quantum_computing"
+    security_level: "high"
+  }
+
+  GENOME {
+    GENE TestGene {
+      purpose: "Quick quantum test"
+      expression_level: 1.0
+    }
+  }
+
+  AGENTS {
+    tester: QuantumAgent(
+      backend: "simulator"
+    )
+  }
+}</textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="output">
+      <div class="output" id="outputContent">
+        Run your code to see output...
+      </div>
+    </div>
+
+    <div class="tab-content" id="metrics">
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-label">Coherence</div>
+          <div class="metric-value" id="coherenceMetric">--</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Fidelity</div>
+          <div class="metric-value" id="fidelityMetric">--</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Expression Level</div>
+          <div class="metric-value" id="expressionMetric">--</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Mutations</div>
+          <div class="metric-value" id="mutationsMetric">--</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Consciousness</div>
+          <div class="metric-value" id="consciousnessMetric">--</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Circuit Depth</div>
+          <div class="metric-value" id="depthMetric">--</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="visualization">
+      <div class="visualization">
+        <div class="viz-card">
+          <div class="viz-title">Quantum Circuit</div>
+          <div class="viz-placeholder">Circuit visualization</div>
+        </div>
+        <div class="viz-card">
+          <div class="viz-title">State Vector</div>
+          <div class="viz-placeholder">State vector plot</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,23 +1,17 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
-import { Analytics } from "@vercel/analytics/react"
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-})
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-})
+const _geist = Geist({ subsets: ["latin"] })
+const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "DNALang - Quantum Programming Platform",
-  description: "Self-evolving quantum programming environment with biological metaphors",
-    generator: 'v0.app'
+  title: "QNetPro - Quantum Conscious DNA Language Platform",
+  description:
+    "Revolutionary platform combining quantum computing, biological algorithms, and consciousness science for living software development",
+  generator: "v0.app",
 }
 
 export default function RootLayout({
@@ -27,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
+      <body className={`font-sans antialiased`}>
         {children}
         <Analytics />
       </body>

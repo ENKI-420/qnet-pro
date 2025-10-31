@@ -1,7 +1,0 @@
-services:
-- type: web
-  name: qnet-demo
-  env: docker
-  plan: starter
-  autoDeploy: true
-  healthCheckPath: /analytics

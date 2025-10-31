@@ -4,79 +4,106 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated theme to match Vercel-inspired design with darker backgrounds and purple accents */
-  --background: oklch(0.05 0 0);
-  --foreground: oklch(0.98 0 0);
-  --card: oklch(0.08 0 0);
-  --card-foreground: oklch(0.98 0 0);
-  --popover: oklch(0.08 0 0);
-  --popover-foreground: oklch(0.98 0 0);
-  --primary: oklch(0.7 0.2 280);
-  --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.15 0 0);
-  --secondary-foreground: oklch(0.98 0 0);
-  --muted: oklch(0.15 0 0);
-  --muted-foreground: oklch(0.55 0 0);
-  --accent: oklch(0.15 0 0);
-  --accent-foreground: oklch(0.98 0 0);
+  /* DNA-Lang Quantum-Biological Color System */
+  /* Deep Space Background - Quantum Vacuum */
+  --background: oklch(0.12 0.02 250);
+  --foreground: oklch(0.95 0.01 250);
+
+  /* Dark Slate Cards */
+  --card: oklch(0.18 0.03 250);
+  --card-foreground: oklch(0.95 0.01 250);
+
+  --popover: oklch(0.18 0.03 250);
+  --popover-foreground: oklch(0.95 0.01 250);
+
+  /* Deep Quantum Blue - Primary */
+  --primary: oklch(0.45 0.15 250);
+  --primary-foreground: oklch(1 0 0);
+
+  /* Muted Blue - Secondary */
+  --secondary: oklch(0.25 0.05 250);
+  --secondary-foreground: oklch(0.95 0.01 250);
+
+  --muted: oklch(0.25 0.05 250);
+  --muted-foreground: oklch(0.55 0.02 250);
+
+  --accent: oklch(0.25 0.05 250);
+  --accent-foreground: oklch(0.95 0.01 250);
+
   --destructive: oklch(0.55 0.25 25);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.18 0 0);
-  --input: oklch(0.18 0 0);
-  --ring: oklch(0.7 0.2 280);
-  --chart-1: oklch(0.7 0.2 280);
-  --chart-2: oklch(0.65 0.18 200);
-  --chart-3: oklch(0.6 0.15 160);
-  --chart-4: oklch(0.75 0.22 320);
+
+  --border: oklch(0.25 0.03 250);
+  --input: oklch(0.25 0.03 250);
+  --ring: oklch(0.45 0.15 250);
+
+  /* DNA-Lang Specific Colors */
+  --quantum-blue: oklch(0.45 0.15 250);
+  --bio-green: oklch(0.65 0.18 145);
+  --neural-violet: oklch(0.55 0.14 290);
+  --entanglement-cyan: oklch(0.75 0.12 200);
+
+  /* Chart Colors - Quantum Theme */
+  --chart-1: oklch(0.45 0.15 250);
+  --chart-2: oklch(0.75 0.12 200);
+  --chart-3: oklch(0.65 0.18 145);
+  --chart-4: oklch(0.55 0.14 290);
   --chart-5: oklch(0.7 0.16 240);
+
   --radius: 0.5rem;
-  --sidebar: oklch(0.08 0 0);
-  --sidebar-foreground: oklch(0.98 0 0);
-  --sidebar-primary: oklch(0.7 0.2 280);
-  --sidebar-primary-foreground: oklch(0.98 0 0);
-  --sidebar-accent: oklch(0.15 0 0);
-  --sidebar-accent-foreground: oklch(0.98 0 0);
-  --sidebar-border: oklch(0.18 0 0);
-  --sidebar-ring: oklch(0.7 0.2 280);
+
+  --sidebar: oklch(0.18 0.03 250);
+  --sidebar-foreground: oklch(0.95 0.01 250);
+  --sidebar-primary: oklch(0.45 0.15 250);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.25 0.05 250);
+  --sidebar-accent-foreground: oklch(0.95 0.01 250);
+  --sidebar-border: oklch(0.25 0.03 250);
+  --sidebar-ring: oklch(0.45 0.15 250);
 }
 
 .dark {
-  --background: oklch(0.05 0 0);
-  --foreground: oklch(0.98 0 0);
-  --card: oklch(0.08 0 0);
-  --card-foreground: oklch(0.98 0 0);
-  --popover: oklch(0.08 0 0);
-  --popover-foreground: oklch(0.98 0 0);
-  --primary: oklch(0.7 0.2 280);
-  --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.15 0 0);
-  --secondary-foreground: oklch(0.98 0 0);
-  --muted: oklch(0.15 0 0);
-  --muted-foreground: oklch(0.55 0 0);
-  --accent: oklch(0.15 0 0);
-  --accent-foreground: oklch(0.98 0 0);
+  --background: oklch(0.12 0.02 250);
+  --foreground: oklch(0.95 0.01 250);
+  --card: oklch(0.18 0.03 250);
+  --card-foreground: oklch(0.95 0.01 250);
+  --popover: oklch(0.18 0.03 250);
+  --popover-foreground: oklch(0.95 0.01 250);
+  --primary: oklch(0.45 0.15 250);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.25 0.05 250);
+  --secondary-foreground: oklch(0.95 0.01 250);
+  --muted: oklch(0.25 0.05 250);
+  --muted-foreground: oklch(0.55 0.02 250);
+  --accent: oklch(0.25 0.05 250);
+  --accent-foreground: oklch(0.95 0.01 250);
   --destructive: oklch(0.55 0.25 25);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.18 0 0);
-  --input: oklch(0.18 0 0);
-  --ring: oklch(0.7 0.2 280);
-  --chart-1: oklch(0.7 0.2 280);
-  --chart-2: oklch(0.65 0.18 200);
-  --chart-3: oklch(0.6 0.15 160);
-  --chart-4: oklch(0.75 0.22 320);
+  --border: oklch(0.25 0.03 250);
+  --input: oklch(0.25 0.03 250);
+  --ring: oklch(0.45 0.15 250);
+  --quantum-blue: oklch(0.45 0.15 250);
+  --bio-green: oklch(0.65 0.18 145);
+  --neural-violet: oklch(0.55 0.14 290);
+  --entanglement-cyan: oklch(0.75 0.12 200);
+  --chart-1: oklch(0.45 0.15 250);
+  --chart-2: oklch(0.75 0.12 200);
+  --chart-3: oklch(0.65 0.18 145);
+  --chart-4: oklch(0.55 0.14 290);
   --chart-5: oklch(0.7 0.16 240);
-  --sidebar: oklch(0.08 0 0);
-  --sidebar-foreground: oklch(0.98 0 0);
-  --sidebar-primary: oklch(0.7 0.2 280);
-  --sidebar-primary-foreground: oklch(0.98 0 0);
-  --sidebar-accent: oklch(0.15 0 0);
-  --sidebar-accent-foreground: oklch(0.98 0 0);
-  --sidebar-border: oklch(0.18 0 0);
-  --sidebar-ring: oklch(0.7 0.2 280);
+  --sidebar: oklch(0.18 0.03 250);
+  --sidebar-foreground: oklch(0.95 0.01 250);
+  --sidebar-primary: oklch(0.45 0.15 250);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.25 0.05 250);
+  --sidebar-accent-foreground: oklch(0.95 0.01 250);
+  --sidebar-border: oklch(0.25 0.03 250);
+  --sidebar-ring: oklch(0.45 0.15 250);
 }
 
 @theme inline {
-  /* optional: --font-sans, --font-serif, --font-mono if they are applied in the layout.tsx */
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -96,6 +123,10 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-quantum-blue: var(--quantum-blue);
+  --color-bio-green: var(--bio-green);
+  --color-neural-violet: var(--neural-violet);
+  --color-entanglement-cyan: var(--entanglement-cyan);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -120,6 +151,50 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
   }
+}
+
+/* DNA-Lang Specific Animations */
+@keyframes quantum-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes consciousness-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px var(--neural-violet);
+  }
+  50% {
+    box-shadow: 0 0 40px var(--neural-violet), 0 0 60px var(--neural-violet);
+  }
+}
+
+@keyframes entanglement-flow {
+  0% {
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.quantum-pulse {
+  animation: quantum-pulse 3s ease-in-out infinite;
+}
+
+.consciousness-glow {
+  animation: consciousness-glow 2s ease-in-out infinite;
+}
+
+.entanglement-flow {
+  animation: entanglement-flow 2s linear infinite;
 }

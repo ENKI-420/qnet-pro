@@ -16,5 +16,12 @@
     "**/node_modules": true,
     "**/.vercel": true,
     "**/bun.lockb": true
+  },
+  "files.associations": {
+    "*.dna": "typescriptreact"
+  },
+  "[dna]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
   }
 }

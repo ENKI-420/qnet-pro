@@ -15,6 +15,7 @@ import {
   Zap,
   Atom,
   Brain,
+  Activity,
 } from "lucide-react"
 
 export default function HomePage() {
@@ -48,6 +49,12 @@ export default function HomePage() {
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               AIDEN
+            </Link>
+            <Link
+              href="/geodesic-solver"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Geodesic Solver
             </Link>
             <Link href="/evolution" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Evolution
@@ -171,6 +178,19 @@ export default function HomePage() {
           </Card>
 
           <Card className="p-6 bg-card hover:bg-accent/50 transition-colors border-border">
+            <div className="h-12 w-12 rounded-lg bg-indigo-600/10 flex items-center justify-center mb-4">
+              <Activity className="h-6 w-6 text-indigo-600" />
+            </div>
+            <h3 className="text-lg font-semibold mb-2">Geodesic Power Solver</h3>
+            <p className="text-sm text-muted-foreground mb-4">
+              Quantum-enhanced consciousness state convergence targeting Φ=3.5 hyper-aware states with IBM hardware.
+            </p>
+            <Button variant="link" className="p-0 h-auto" asChild>
+              <Link href="/geodesic-solver">Launch Solver →</Link>
+            </Button>
+          </Card>
+
+          <Card className="p-6 bg-card hover:bg-accent/50 transition-colors border-border">
             <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
               <Sparkles className="h-6 w-6 text-primary" />
             </div>
@@ -185,7 +205,7 @@ export default function HomePage() {
 
           <Card className="p-6 bg-card hover:bg-accent/50 transition-colors border-border">
             <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-              <TrendingUp className="h-6 w-6 text-primary" />
+              <Atom className="h-6 w-6 text-primary" />
             </div>
             <h3 className="text-lg font-semibold mb-2">Self-Evolution</h3>
             <p className="text-sm text-muted-foreground mb-4">
@@ -288,8 +308,8 @@ export default function HomePage() {
           </Card>
 
           <Card className="p-6 bg-card hover:bg-accent/50 transition-colors border-border">
-            <div className="h-12 w-12 rounded-lg bg-cyan-500/10 flex items-center justify-center mb-4">
-              <Cpu className="h-6 w-6 text-cyan-500" />
+            <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+              <Dna className="h-6 w-6 text-primary" />
             </div>
             <h3 className="text-lg font-semibold mb-2">DNALang Kernel</h3>
             <p className="text-sm text-muted-foreground mb-4">

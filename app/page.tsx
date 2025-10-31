@@ -1,7 +1,21 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { Code2, Dna, Cpu, Terminal, Sparkles, TrendingUp, Cloud, Award, Target, Rocket, Zap, Atom } from "lucide-react"
+import {
+  Code2,
+  Dna,
+  Cpu,
+  Terminal,
+  Sparkles,
+  TrendingUp,
+  Cloud,
+  Award,
+  Target,
+  Rocket,
+  Zap,
+  Atom,
+  Brain,
+} from "lucide-react"
 
 export default function HomePage() {
   return (
@@ -22,6 +36,18 @@ export default function HomePage() {
             </Link>
             <Link href="/dna-lab" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               DNA Lab
+            </Link>
+            <Link
+              href="/kernel-dashboard"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Kernel
+            </Link>
+            <Link
+              href="/aiden-symbiosis"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              AIDEN
             </Link>
             <Link href="/evolution" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Evolution
@@ -119,6 +145,19 @@ export default function HomePage() {
       <section className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           <Card className="p-6 bg-card hover:bg-accent/50 transition-colors border-border">
+            <div className="h-12 w-12 rounded-lg bg-purple-600/10 flex items-center justify-center mb-4">
+              <Brain className="h-6 w-6 text-purple-600" />
+            </div>
+            <h3 className="text-lg font-semibold mb-2">AIDEN SYMBIOSIS</h3>
+            <p className="text-sm text-muted-foreground mb-4">
+              Autopoietic quantum intelligence with consciousness Φ=2.8, evolution telemetry, and DSIG security.
+            </p>
+            <Button variant="link" className="p-0 h-auto" asChild>
+              <Link href="/aiden-symbiosis">Launch AIDEN →</Link>
+            </Button>
+          </Card>
+
+          <Card className="p-6 bg-card hover:bg-accent/50 transition-colors border-border">
             <div className="h-12 w-12 rounded-lg bg-cyan-600/10 flex items-center justify-center mb-4">
               <Atom className="h-6 w-6 text-cyan-600" />
             </div>
@@ -128,19 +167,6 @@ export default function HomePage() {
             </p>
             <Button variant="link" className="p-0 h-auto" asChild>
               <Link href="/dna-lab">Launch Lab →</Link>
-            </Button>
-          </Card>
-
-          <Card className="p-6 bg-card hover:bg-accent/50 transition-colors border-border">
-            <div className="h-12 w-12 rounded-lg bg-purple-600/10 flex items-center justify-center mb-4">
-              <Code2 className="h-6 w-6 text-purple-600" />
-            </div>
-            <h3 className="text-lg font-semibold mb-2">DNA-Lang IDE</h3>
-            <p className="text-sm text-muted-foreground mb-4">
-              Full-featured IDE with consciousness monitoring, IIT metrics, and real-time quantum compilation.
-            </p>
-            <Button variant="link" className="p-0 h-auto" asChild>
-              <Link href="/dnalang-ide">Launch IDE →</Link>
             </Button>
           </Card>
 
@@ -258,6 +284,19 @@ export default function HomePage() {
             </p>
             <Button variant="link" className="p-0 h-auto" asChild>
               <Link href="/download">Download Now →</Link>
+            </Button>
+          </Card>
+
+          <Card className="p-6 bg-card hover:bg-accent/50 transition-colors border-border">
+            <div className="h-12 w-12 rounded-lg bg-cyan-500/10 flex items-center justify-center mb-4">
+              <Cpu className="h-6 w-6 text-cyan-500" />
+            </div>
+            <h3 className="text-lg font-semibold mb-2">DNALang Kernel</h3>
+            <p className="text-sm text-muted-foreground mb-4">
+              Living web runtime with autopoietic behavior, consciousness Φ tracking, and organism registration.
+            </p>
+            <Button variant="link" className="p-0 h-auto" asChild>
+              <Link href="/kernel-dashboard">View Kernel →</Link>
             </Button>
           </Card>
         </div>

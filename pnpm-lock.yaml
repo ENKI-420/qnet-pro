@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@ai-sdk/react':
         specifier: latest
-        version: 2.0.83(react@19.2.0)(zod@3.24.1)
+        version: 2.0.84(react@19.2.0)(zod@3.24.1)
       '@auth/core':
         specifier: latest
         version: 0.34.3(nodemailer@7.0.10)
@@ -55,7 +55,7 @@ importers:
         version: 1.5.0(next@15.5.6(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(@playwright/test@1.40.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)
       ai:
         specifier: latest
-        version: 5.0.83(zod@3.24.1)
+        version: 5.0.84(zod@3.24.1)
       bcryptjs:
         specifier: latest
         version: 3.0.2
@@ -65,6 +65,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      fs:
+        specifier: latest
+        version: 0.0.1-security
       lucide-react:
         specifier: ^0.454.0
         version: 0.454.0(react@19.2.0)
@@ -77,6 +80,9 @@ importers:
       nodemailer:
         specifier: latest
         version: 7.0.10
+      path:
+        specifier: latest
+        version: 0.12.7
       react:
         specifier: 19.2.0
         version: 19.2.0
@@ -151,8 +157,8 @@ packages:
     resolution: {integrity: sha512-6o7Y2SeO9vFKB8lArHXehNuusnpddKPk7xqL7T2/b+OvXMRIXUO1rR4wcv1hAFUAT9avGZshty3Wlua/XA7TvA==}
     engines: {node: '>=18'}
 
-  '@ai-sdk/react@2.0.83':
-    resolution: {integrity: sha512-61JaiqlaSB7VjvMwSrpo8SokVF+roxb6O7T7uDBz0l4Osa0mtoXOF9haO2ow9vdoyFtDrH29mRTwIHBhjZCbYw==}
+  '@ai-sdk/react@2.0.84':
+    resolution: {integrity: sha512-2mV2rwKlDnZCAuCSfF7j4XuPcjbvmo63fDi3a2e67UE/PbL54UYDcFJFm5CF2xMPg66/OdsS64cbRe0KwiJ3Nw==}
     engines: {node: '>=18'}
     peerDependencies:
       react: ^18 || ^19 || ^19.0.0-rc
@@ -1482,8 +1488,8 @@ packages:
     resolution: {integrity: sha512-MnA+YT8fwfJPgBx3m60MNqakm30XOkyIoH1y6huTQvC0PwZG7ki8NacLBcrPbNoo8vEZy7Jpuk7+jMO+CUovTQ==}
     engines: {node: '>= 14'}
 
-  ai@5.0.83:
-    resolution: {integrity: sha512-tMc1wqc9khzETBN0X4/MHw9RbeP5uKFdoG5sUIUJ3p7lSgfDU6yZMwT6jrnA3Nk2AvxM0T43P1h2LfPlBSwGKA==}
+  ai@5.0.84:
+    resolution: {integrity: sha512-ADV5PxdnKXK5tO5il3HLCpPBPmppOVYaMpptuLcSpGpxQ28Q40mE+k35Ck0UNzvq1NLz6ZhYr4qZKFF8jXg+LQ==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
@@ -1911,6 +1917,9 @@ packages:
   fs.realpath@1.0.0:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
 
+  fs@0.0.1-security:
+    resolution: {integrity: sha512-3XY9e1pP0CVEUCdj5BmfIZxRBTSDycnbqhIOGec9QYtmVH2fbLpj86CFWkrNOkt/Fvty4KZG5lTglL9j/gJ87w==}
+
   fsevents@2.3.2:
     resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
@@ -2004,6 +2013,9 @@ packages:
   inflight@1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
     deprecated: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+
+  inherits@2.0.3:
+    resolution: {integrity: sha512-x00IRNXNy63jwGkJmzPigoySHbaqpNuzKbBOmzK+g2OdZpQ9w+sxCN+VSB3ja7IAge2OP2qpfxTjeNcyjmW1uw==}
 
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
@@ -2620,6 +2632,9 @@ packages:
   path-parse@1.0.7:
     resolution: {integrity: sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==}
 
+  path@0.12.7:
+    resolution: {integrity: sha512-aXXC6s+1w7otVF9UletFkFcDsJeO7lSZBPUQhtb5O0xJe8LtYhj/GxldoL09bBj9+ZmE2hNoHqQSFMN5fikh4Q==}
+
   pathe@2.0.3:
     resolution: {integrity: sha512-WUjGcAqP1gQacoQe+OBJsFA7Ld4DyXuUIjZ5cc75cLHvJ7dtNsTugphxIADwspS+AraAUePCKrSVtPLFj/F88w==}
 
@@ -2702,6 +2717,10 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
+
+  process@0.11.10:
+    resolution: {integrity: sha512-cdGef/drWFoydD1JsMzuFf8100nZl+GT+yacc2bEced5f9Rjk4z+WtFUTBu9PhOi9j/jfmBPu0mMEY4wIdAF8A==}
+    engines: {node: '>= 0.6.0'}
 
   promise@8.3.0:
     resolution: {integrity: sha512-rZPNPKTOYVNEEKFaq1HqTgOwZD+4/YHS5ukLzQCypkj+OkYx7iv0mA91lJlpPPZ8vMau3IIGj5Qlwrx+8iiSmg==}
@@ -3076,6 +3095,9 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
+  util@0.10.4:
+    resolution: {integrity: sha512-0Pm9hTQ3se5ll1XihRic3FDIku70C+iHUdT/W926rSgHV5QgXsYbKZN8MSC3tJtSkhuROzvsQjAaFENRXr+19A==}
+
   utils-merge@1.0.1:
     resolution: {integrity: sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==}
     engines: {node: '>= 0.4.0'}
@@ -3190,10 +3212,10 @@ snapshots:
     dependencies:
       json-schema: 0.4.0
 
-  '@ai-sdk/react@2.0.83(react@19.2.0)(zod@3.24.1)':
+  '@ai-sdk/react@2.0.84(react@19.2.0)(zod@3.24.1)':
     dependencies:
       '@ai-sdk/provider-utils': 3.0.14(zod@3.24.1)
-      ai: 5.0.83(zod@3.24.1)
+      ai: 5.0.84(zod@3.24.1)
       react: 19.2.0
       swr: 2.3.6(react@19.2.0)
       throttleit: 2.1.0
@@ -4534,7 +4556,7 @@ snapshots:
 
   agent-base@7.1.4: {}
 
-  ai@5.0.83(zod@3.24.1):
+  ai@5.0.84(zod@3.24.1):
     dependencies:
       '@ai-sdk/gateway': 2.0.4(zod@3.24.1)
       '@ai-sdk/provider': 2.0.0
@@ -4948,6 +4970,8 @@ snapshots:
 
   fs.realpath@1.0.0: {}
 
+  fs@0.0.1-security: {}
+
   fsevents@2.3.2:
     optional: true
 
@@ -5034,6 +5058,8 @@ snapshots:
     dependencies:
       once: 1.4.0
       wrappy: 1.0.2
+
+  inherits@2.0.3: {}
 
   inherits@2.0.4: {}
 
@@ -5889,6 +5915,11 @@ snapshots:
 
   path-parse@1.0.7: {}
 
+  path@0.12.7:
+    dependencies:
+      process: 0.11.10
+      util: 0.10.4
+
   pathe@2.0.3: {}
 
   perfect-debounce@1.0.0: {}
@@ -5965,6 +5996,8 @@ snapshots:
       typescript: 5.0.2
     transitivePeerDependencies:
       - magicast
+
+  process@0.11.10: {}
 
   promise@8.3.0:
     dependencies:
@@ -6350,6 +6383,10 @@ snapshots:
   use-sync-external-store@1.6.0(react@19.2.0):
     dependencies:
       react: 19.2.0
+
+  util@0.10.4:
+    dependencies:
+      inherits: 2.0.3
 
   utils-merge@1.0.1: {}
 

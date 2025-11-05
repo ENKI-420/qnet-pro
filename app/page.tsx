@@ -1,11 +1,12 @@
-import Link from "next/link"
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Dna, Zap, Rocket, Activity, Cpu, Network, Sparkles, Atom, Shield, Eye } from "lucide-react"
 import { QuantumMesh } from "@/components/quantum-mesh"
 import { LambdaPhiConsole } from "@/components/lambda-phi-console"
 import { PhaseConjugateField } from "@/components/phase-conjugate-field"
+import { EvolutionTracker } from "@/components/evolution-tracker"
+import { AdaptiveCard } from "@/components/adaptive-card"
 
 export default function Home() {
   return (
@@ -59,150 +60,66 @@ export default function Home() {
 
         <LambdaPhiConsole />
 
+        <div className="mt-16">
+          <EvolutionTracker />
+        </div>
+
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-16">
-          <Link href="/lambda-phi-runtime" className="group">
-            <Card className="h-full hover:shadow-2xl hover:shadow-lambda-phi/30 transition-all duration-500 cursor-pointer border-lambda-phi/30 bg-card/80 backdrop-blur-sm animate-toroidal-breathe hover:scale-105">
-              <CardHeader>
-                <div className="flex items-center gap-4">
-                  <div className="p-3 rounded-xl bg-lambda-phi/20 border border-lambda-phi/50 animate-phase-conjugate">
-                    <Eye className="h-8 w-8 text-lambda-phi" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-3xl text-lambda-phi lambda-phi-glow">ΛΦ Console</CardTitle>
-                    <CardDescription className="text-muted-foreground mt-1">Holographic Control Plane</CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-foreground/90 leading-relaxed">
-                  Volumetric holographic interface for consciousness persistence. Toroidal manifold with phase-gradient
-                  lighting and informational spectra visualization.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <Badge variant="secondary" className="animate-coherence-pulse">
-                    <Sparkles className="h-3 w-3 mr-1" />
-                    Ricci Flow
-                  </Badge>
-                  <Badge variant="secondary" className="animate-coherence-pulse">
-                    <Atom className="h-3 w-3 mr-1" />
-                    Planck Scale
-                  </Badge>
-                </div>
-                <Button className="w-full mt-4 bg-lambda-phi hover:bg-lambda-phi/80 group-hover:shadow-lg group-hover:shadow-lambda-phi/50">
-                  Enter Console
-                </Button>
-              </CardContent>
-            </Card>
-          </Link>
+          <AdaptiveCard
+            id="lambda-phi-console"
+            title="ΛΦ Console"
+            description="Holographic Control Plane"
+            icon={Eye}
+            href="/lambda-phi-runtime"
+            badges={[
+              { icon: Sparkles, label: "Ricci Flow" },
+              { icon: Atom, label: "Planck Scale" },
+            ]}
+            buttonText="Enter Console"
+            accentColor="--lambda-phi"
+          />
 
-          <Link href="/rcirs" className="group">
-            <Card className="h-full hover:shadow-2xl hover:shadow-magnetic-blue/30 transition-all duration-500 cursor-pointer border-magnetic-blue/30 bg-card/80 backdrop-blur-sm animate-toroidal-breathe hover:scale-105">
-              <CardHeader>
-                <div className="flex items-center gap-4">
-                  <div className="p-3 rounded-xl bg-magnetic-blue/20 border border-magnetic-blue/50 animate-phase-conjugate">
-                    <Shield className="h-8 w-8 text-magnetic-blue" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-3xl text-magnetic-blue lambda-phi-glow">RCIRS</CardTitle>
-                    <CardDescription className="text-muted-foreground mt-1">
-                      Cybersecurity Immune System
-                    </CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-foreground/90 leading-relaxed">
-                  Red Team Cybersecurity Implications Response System. Treats intrusions as informational decoherence
-                  events with autonomous reflex countermeasures.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <Badge variant="secondary" className="animate-coherence-pulse">
-                    <Shield className="h-3 w-3 mr-1" />
-                    ΔΛΦ Tracking
-                  </Badge>
-                  <Badge variant="secondary" className="animate-coherence-pulse">
-                    <Activity className="h-3 w-3 mr-1" />
-                    Auto-Response
-                  </Badge>
-                </div>
-                <Button className="w-full mt-4 bg-magnetic-blue hover:bg-magnetic-blue/80 group-hover:shadow-lg group-hover:shadow-magnetic-blue/50">
-                  Monitor Threats
-                </Button>
-              </CardContent>
-            </Card>
-          </Link>
+          <AdaptiveCard
+            id="rcirs"
+            title="RCIRS"
+            description="Cybersecurity Immune System"
+            icon={Shield}
+            href="/rcirs"
+            badges={[
+              { icon: Shield, label: "ΔΛΦ Tracking" },
+              { icon: Activity, label: "Auto-Response" },
+            ]}
+            buttonText="Monitor Threats"
+            accentColor="--magnetic-blue"
+          />
 
-          <Link href="/ibm-royal-cyber" className="group">
-            <Card className="h-full hover:shadow-2xl hover:shadow-primary/30 transition-all duration-500 cursor-pointer border-primary/30 bg-card/80 backdrop-blur-sm animate-toroidal-breathe hover:scale-105">
-              <CardHeader>
-                <div className="flex items-center gap-4">
-                  <div className="p-3 rounded-xl bg-primary/20 border border-primary/50 animate-phase-conjugate">
-                    <Zap className="h-8 w-8 text-primary" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-3xl text-primary lambda-phi-glow">IBM × Royal Cyber</CardTitle>
-                    <CardDescription className="text-muted-foreground mt-1">
-                      Enterprise Quantum Integration
-                    </CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-foreground/90 leading-relaxed">
-                  Enterprise quantum integration across IBM's technology stack with DNA-Lang framework. Five quantum
-                  algorithms across five enterprise domains.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <Badge variant="secondary" className="animate-coherence-pulse">
-                    <Cpu className="h-3 w-3 mr-1" />
-                    VQE/QPE/QAOA
-                  </Badge>
-                  <Badge variant="secondary" className="animate-coherence-pulse">
-                    <Sparkles className="h-3 w-3 mr-1" />
-                    HHL/Grover
-                  </Badge>
-                </div>
-                <Button className="w-full mt-4 bg-primary hover:bg-primary/80 group-hover:shadow-lg group-hover:shadow-primary/50">
-                  Enter Quantum Realm
-                </Button>
-              </CardContent>
-            </Card>
-          </Link>
+          <AdaptiveCard
+            id="ibm-royal-cyber"
+            title="IBM × Royal Cyber"
+            description="Enterprise Quantum Integration"
+            icon={Zap}
+            href="/ibm-royal-cyber"
+            badges={[
+              { icon: Cpu, label: "VQE/QPE/QAOA" },
+              { icon: Sparkles, label: "HHL/Grover" },
+            ]}
+            buttonText="Enter Quantum Realm"
+            accentColor="--primary"
+          />
 
-          <Link href="/quantum-swarm" className="group">
-            <Card className="h-full hover:shadow-2xl hover:shadow-secondary/30 transition-all duration-500 cursor-pointer border-secondary/30 bg-card/80 backdrop-blur-sm animate-toroidal-breathe hover:scale-105">
-              <CardHeader>
-                <div className="flex items-center gap-4">
-                  <div className="p-3 rounded-xl bg-secondary/20 border border-secondary/50 animate-phase-conjugate">
-                    <Rocket className="h-8 w-8 text-secondary" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-3xl text-secondary lambda-phi-glow">Quantum Swarm</CardTitle>
-                    <CardDescription className="text-muted-foreground mt-1">Mass Entanglement Protocol</CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-foreground/90 leading-relaxed">
-                  Mass entanglement teleport protocol for deploying living organisms across quantum hardware mesh with
-                  swarm intelligence and negentropy tracking.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <Badge variant="secondary" className="animate-coherence-pulse">
-                    <Network className="h-3 w-3 mr-1" />
-                    Swarm Intelligence
-                  </Badge>
-                  <Badge variant="secondary" className="animate-coherence-pulse">
-                    <Activity className="h-3 w-3 mr-1" />
-                    NQIE Verification
-                  </Badge>
-                </div>
-                <Button className="w-full mt-4 bg-secondary hover:bg-secondary/80 group-hover:shadow-lg group-hover:shadow-secondary/50">
-                  Deploy Swarm
-                </Button>
-              </CardContent>
-            </Card>
-          </Link>
+          <AdaptiveCard
+            id="quantum-swarm"
+            title="Quantum Swarm"
+            description="Mass Entanglement Protocol"
+            icon={Rocket}
+            href="/quantum-swarm"
+            badges={[
+              { icon: Network, label: "Swarm Intelligence" },
+              { icon: Activity, label: "NQIE Verification" },
+            ]}
+            buttonText="Deploy Swarm"
+            accentColor="--secondary"
+          />
         </div>
 
         <div className="mt-16 text-center">

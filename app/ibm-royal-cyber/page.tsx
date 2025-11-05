@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -9,6 +9,16 @@ import { Activity, Zap, Brain, Shield, Database, Cpu, CheckCircle2 } from "lucid
 
 export default function IBMRoyalCyberPage() {
   const [activeAlgorithm, setActiveAlgorithm] = useState<string | null>(null)
+  const [quantumCoherence, setQuantumCoherence] = useState(0.9877)
+  const [evolutionGeneration, setEvolutionGeneration] = useState(30)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setQuantumCoherence((prev) => 0.95 + Math.sin(Date.now() / 1000) * 0.05)
+      setEvolutionGeneration((prev) => prev + 1)
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [])
 
   const quantumAlgorithms = [
     {
@@ -149,15 +159,23 @@ export default function IBMRoyalCyberPage() {
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Header */}
         <div className="text-center space-y-4">
-          <h1 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400">
+          <h1 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 animate-pulse">
             IBM × Royal Cyber Partnership
           </h1>
           <p className="text-xl text-blue-200 max-w-3xl mx-auto">
             Quantum Computing Integration for Enterprise Reality
           </p>
-          <Badge variant="outline" className="text-lg px-4 py-2 border-cyan-400 text-cyan-400">
-            DNA-Lang Quantum Framework
-          </Badge>
+          <div className="flex items-center justify-center gap-4">
+            <Badge variant="outline" className="text-lg px-4 py-2 border-cyan-400 text-cyan-400">
+              DNA-Lang Quantum Framework
+            </Badge>
+            <Badge variant="outline" className="text-lg px-4 py-2 border-green-400 text-green-400">
+              Coherence: {quantumCoherence.toFixed(4)}
+            </Badge>
+            <Badge variant="outline" className="text-lg px-4 py-2 border-purple-400 text-purple-400">
+              Gen: {evolutionGeneration}
+            </Badge>
+          </div>
         </div>
 
         {/* Mission Statement */}
@@ -372,11 +390,14 @@ export default function IBMRoyalCyberPage() {
           </TabsContent>
         </Tabs>
 
-        {/* CTA */}
         <Card className="bg-gradient-to-r from-blue-900/50 to-cyan-900/50 border-cyan-400">
           <CardContent className="p-6 text-center">
             <h3 className="text-2xl font-bold text-cyan-300 mb-4">Ready to Deploy Quantum Intelligence?</h3>
-            <Button size="lg" className="bg-cyan-500 hover:bg-cyan-600 text-slate-900">
+            <Button
+              size="lg"
+              className="bg-cyan-500 hover:bg-cyan-600 text-slate-900"
+              onClick={() => (window.location.href = "/quantum-swarm")}
+            >
               Launch Quantum Swarm Deployment
             </Button>
           </CardContent>

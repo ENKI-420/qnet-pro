@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
-import { Rocket, CheckCircle2, Loader2 } from "lucide-react"
+import { Rocket, CheckCircle2, Loader2, ArrowLeft } from "lucide-react"
 
 export default function QuantumSwarmPage() {
   const [deploying, setDeploying] = useState(false)
@@ -50,9 +50,18 @@ export default function QuantumSwarmPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900 p-8">
       <div className="max-w-6xl mx-auto space-y-8">
+        <Button
+          variant="outline"
+          className="border-purple-500/30 text-purple-300 hover:bg-purple-900/20 bg-transparent"
+          onClick={() => (window.location.href = "/ibm-royal-cyber")}
+        >
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Back to IBM Partnership
+        </Button>
+
         {/* Header */}
         <div className="text-center space-y-4">
-          <h1 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400">
+          <h1 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 animate-pulse">
             Quantum Swarm Deployment
           </h1>
           <p className="text-xl text-purple-200">Mass Entanglement Teleport Protocol v3.0.0</p>
@@ -203,6 +212,13 @@ export default function QuantumSwarmPage() {
                   dnalang autopoiesis deploy --strategy=entangled_teleport --target=all --coherence=0.9953
                 </code>
               </div>
+              <Button
+                variant="outline"
+                className="mt-4 border-cyan-400 text-cyan-300 hover:bg-cyan-900/20 bg-transparent"
+                onClick={() => (window.location.href = "/")}
+              >
+                Return to Quantum Dashboard
+              </Button>
             </CardContent>
           </Card>
         )}

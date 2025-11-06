@@ -4,7 +4,6 @@ import { useEffect, useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Activity, Dna, TrendingUp, Zap } from "lucide-react"
-import { getEvolutionEngine } from "@/lib/ui-evolution-engine"
 
 export function EvolutionTracker() {
   const [metrics, setMetrics] = useState({
@@ -16,13 +15,18 @@ export function EvolutionTracker() {
   })
 
   useEffect(() => {
-    const engine = getEvolutionEngine()
+    if (typeof window === "undefined") return
 
-    const interval = setInterval(() => {
-      setMetrics(engine.getMetrics())
-    }, 1000)
+    import("@/lib/ui-evolution-engine").then(({ getEvolutionEngine }) => {
+      const engine = getEvolutionEngine()
 
-    return () => clearInterval(interval)
+      const interval = setInterval(() => {
+        setMetrics(engine.getMetrics())
+      }, 1000)
+
+      return () => clearInterval(interval)
+    })
+    // </CHANGE>
   }, [])
 
   return (

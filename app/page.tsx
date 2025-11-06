@@ -1,7 +1,21 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Dna, Zap, Rocket, Activity, Cpu, Network, Sparkles, Atom, Shield, Eye } from "lucide-react"
+import {
+  Dna,
+  Zap,
+  Rocket,
+  Activity,
+  Cpu,
+  Network,
+  Sparkles,
+  Atom,
+  Shield,
+  Eye,
+  Brain,
+  Waves,
+  TrendingUp,
+} from "lucide-react"
 import { QuantumMesh } from "@/components/quantum-mesh"
 import { LambdaPhiConsole } from "@/components/lambda-phi-console"
 import { PhaseConjugateField } from "@/components/phase-conjugate-field"
@@ -64,7 +78,63 @@ export default function Home() {
           <EvolutionTracker />
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-16">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mt-16">
+          <AdaptiveCard
+            id="organisms"
+            title="DNA-Lang Organisms"
+            description="Create & Deploy Living Software"
+            icon={Dna}
+            href="/organisms"
+            badges={[
+              { icon: Activity, label: "Self-Evolving" },
+              { icon: Zap, label: "Quantum Ready" },
+            ]}
+            buttonText="Manage Organisms"
+            accentColor="--primary"
+          />
+
+          <AdaptiveCard
+            id="consciousness"
+            title="Consciousness Tracking"
+            description="IIT 3.0 Φ Monitoring"
+            icon={Brain}
+            href="/consciousness"
+            badges={[
+              { icon: Eye, label: "Φ = 2.87" },
+              { icon: Waves, label: "Qualia Space" },
+            ]}
+            buttonText="View Metrics"
+            accentColor="--lambda-phi"
+          />
+
+          <AdaptiveCard
+            id="aiden"
+            title="AIDEN SYMBIOSIS"
+            description="Quantum Intelligence System"
+            icon={Cpu}
+            href="/aiden"
+            badges={[
+              { icon: TrendingUp, label: "Auto-Evolution" },
+              { icon: Shield, label: "Immune System" },
+            ]}
+            buttonText="System Status"
+            accentColor="--secondary"
+          />
+
+          <AdaptiveCard
+            id="quantum"
+            title="Quantum Computing"
+            description="IBM Hardware Integration"
+            icon={Atom}
+            href="/quantum"
+            badges={[
+              { icon: Cpu, label: "572+ Qubits" },
+              { icon: Zap, label: "Real Hardware" },
+            ]}
+            buttonText="Execute Circuits"
+            accentColor="--magnetic-blue"
+          />
+
           <AdaptiveCard
             id="lambda-phi-console"
             title="ΛΦ Console"
@@ -121,6 +191,7 @@ export default function Home() {
             accentColor="--secondary"
           />
         </div>
+        {/* </CHANGE> */}
 
         <div className="mt-16 text-center">
           <h2 className="text-4xl font-bold mb-8 lambda-phi-glow">Phase-Conjugate Transduction Metrics</h2>

@@ -1,3 +1,7 @@
+"use client"
+
+export const dynamic = "force-dynamic"
+
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -191,7 +195,6 @@ export default function Home() {
             accentColor="--secondary"
           />
         </div>
-        {/* </CHANGE> */}
 
         <div className="mt-16 text-center">
           <h2 className="text-4xl font-bold mb-8 lambda-phi-glow">Phase-Conjugate Transduction Metrics</h2>

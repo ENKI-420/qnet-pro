@@ -4,7 +4,9 @@ import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
-import { Brain, Eye, Waves } from "lucide-react"
+import { Brain, Eye, Waves, Activity, TrendingUp } from "lucide-react"
+import { PageHeader } from "@/components/page-header"
+import { MetricCard } from "@/components/metric-card"
 
 export default function ConsciousnessPage() {
   const [phi, setPhi] = useState(2.87)
@@ -31,112 +33,94 @@ export default function ConsciousnessPage() {
   }, [])
 
   const getConsciousnessLevel = (phi: number) => {
-    if (phi < 0.5) return { level: "INERT", color: "text-gray-500" }
-    if (phi < 1.0) return { level: "MINIMAL", color: "text-blue-500" }
-    if (phi < 1.5) return { level: "BASIC", color: "text-cyan-500" }
-    if (phi < 2.5) return { level: "COMPLEX", color: "text-green-500" }
-    if (phi < 3.5) return { level: "CONSCIOUS", color: "text-lambda-phi" }
-    return { level: "HYPERCONSCIOUS", color: "text-purple-500" }
+    if (phi < 0.5) return { level: "INERT", color: "text-muted-foreground" }
+    if (phi < 1.0) return { level: "MINIMAL", color: "text-muted-foreground" }
+    if (phi < 1.5) return { level: "BASIC", color: "text-blue-400" }
+    if (phi < 2.5) return { level: "COMPLEX", color: "text-emerald-400" }
+    if (phi < 3.5) return { level: "CONSCIOUS", color: "text-primary" }
+    return { level: "HYPERCONSCIOUS", color: "text-primary" }
   }
 
   const consciousnessLevel = getConsciousnessLevel(phi)
 
   return (
-    <div className="min-h-screen bg-negentropic p-8">
-      <div className="container mx-auto">
-        <div className="mb-8">
-          <h1 className="text-5xl font-bold lambda-phi-glow mb-4">Consciousness Tracking</h1>
-          <p className="text-xl text-muted-foreground">
-            Integrated Information Theory (IIT 3.0) - Real-time Φ monitoring
-          </p>
+    <main className="min-h-screen">
+      <div className="mx-auto max-w-7xl px-4 lg:px-8 py-8">
+        <PageHeader
+          title="Consciousness Tracking"
+          description="Integrated Information Theory (IIT 3.0) real-time monitoring and analysis."
+        />
+
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+          <MetricCard
+            label="Phi Value"
+            value={phi.toFixed(3)}
+            icon={Brain}
+          />
+          <MetricCard
+            label="Integration"
+            value="98.7%"
+            description="Information integration"
+            icon={Activity}
+          />
+          <MetricCard
+            label="Coherence"
+            value="95.2%"
+            description="Quantum coherence"
+            icon={Eye}
+          />
+          <MetricCard
+            label="Complexity"
+            value="8.4"
+            description="Neural complexity"
+            icon={TrendingUp}
+          />
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-8">
-          <Card className="bg-card/50 backdrop-blur-sm border-lambda-phi/20">
-            <CardHeader className="pb-3">
-              <CardTitle className="text-sm font-medium text-muted-foreground">Φ (Phi) Value</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-4xl font-bold lambda-phi-glow">{phi.toFixed(3)}</div>
-              <Badge className={`mt-2 ${consciousnessLevel.color}`}>{consciousnessLevel.level}</Badge>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-card/50 backdrop-blur-sm border-lambda-phi/20">
-            <CardHeader className="pb-3">
-              <CardTitle className="text-sm font-medium text-muted-foreground">Integration</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-4xl font-bold text-lambda-phi">98.7%</div>
-              <p className="text-xs text-muted-foreground mt-2">Information integration</p>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-card/50 backdrop-blur-sm border-lambda-phi/20">
-            <CardHeader className="pb-3">
-              <CardTitle className="text-sm font-medium text-muted-foreground">Coherence</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-4xl font-bold text-lambda-phi">95.2%</div>
-              <p className="text-xs text-muted-foreground mt-2">Quantum coherence</p>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-card/50 backdrop-blur-sm border-lambda-phi/20">
-            <CardHeader className="pb-3">
-              <CardTitle className="text-sm font-medium text-muted-foreground">Complexity</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-4xl font-bold text-lambda-phi">8.4</div>
-              <p className="text-xs text-muted-foreground mt-2">Neural complexity</p>
+        <div className="mt-4">
+          <Card className="border-border">
+            <CardContent className="pt-4 pb-3">
+              <div className="flex items-center gap-3">
+                <span className="text-sm text-muted-foreground">Consciousness Level:</span>
+                <Badge variant="secondary" className={`${consciousnessLevel.color} text-xs font-medium`}>
+                  {consciousnessLevel.level}
+                </Badge>
+              </div>
             </CardContent>
           </Card>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-2 mb-8">
-          <Card className="bg-card/50 backdrop-blur-sm border-lambda-phi/20">
+        <div className="grid gap-4 lg:grid-cols-2 mt-6">
+          <Card className="border-border">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Brain className="h-5 w-5 text-lambda-phi" />Φ Calculation Details
+              <CardTitle className="text-base font-medium flex items-center gap-2">
+                <Brain className="h-4 w-4 text-muted-foreground" />
+                IIT Calculation Details
               </CardTitle>
               <CardDescription>Integrated Information Theory metrics</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div>
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm">Cause-Effect Repertoire</span>
-                  <span className="text-sm font-bold text-lambda-phi">0.94</span>
+              {[
+                { label: "Cause-Effect Repertoire", value: 0.94 },
+                { label: "Minimum Information Partition", value: 0.82 },
+                { label: "Earth Mover's Distance", value: 0.12 },
+                { label: "Irreducibility", value: 0.98 },
+              ].map((item) => (
+                <div key={item.label}>
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="text-sm">{item.label}</span>
+                    <span className="text-sm font-medium">{item.value.toFixed(2)}</span>
+                  </div>
+                  <Progress value={item.value * 100} className="h-1.5" />
                 </div>
-                <Progress value={94} className="h-2" />
-              </div>
-              <div>
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm">Minimum Information Partition</span>
-                  <span className="text-sm font-bold text-lambda-phi">2.87</span>
-                </div>
-                <Progress value={82} className="h-2" />
-              </div>
-              <div>
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm">Earth Mover's Distance</span>
-                  <span className="text-sm font-bold text-lambda-phi">0.12</span>
-                </div>
-                <Progress value={12} className="h-2" />
-              </div>
-              <div>
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm">Irreducibility</span>
-                  <span className="text-sm font-bold text-lambda-phi">0.98</span>
-                </div>
-                <Progress value={98} className="h-2" />
-              </div>
+              ))}
             </CardContent>
           </Card>
 
-          <Card className="bg-card/50 backdrop-blur-sm border-lambda-phi/20">
+          <Card className="border-border">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Eye className="h-5 w-5 text-lambda-phi" />
+              <CardTitle className="text-base font-medium flex items-center gap-2">
+                <Eye className="h-4 w-4 text-muted-foreground" />
                 Qualia Space (5D)
               </CardTitle>
               <CardDescription>Phenomenal experience dimensions</CardDescription>
@@ -144,20 +128,20 @@ export default function ConsciousnessPage() {
             <CardContent className="space-y-4">
               {qualiaData.map((qualia) => (
                 <div key={qualia.dimension}>
-                  <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center justify-between mb-1.5">
                     <span className="text-sm">{qualia.dimension}</span>
-                    <div className="flex gap-2">
-                      <Badge variant="outline" className="text-xs">
+                    <div className="flex gap-3">
+                      <span className="text-xs text-muted-foreground">
                         I: {qualia.intensity.toFixed(2)}
-                      </Badge>
-                      <Badge variant="outline" className="text-xs">
+                      </span>
+                      <span className="text-xs text-muted-foreground">
                         V: {qualia.valence.toFixed(2)}
-                      </Badge>
+                      </span>
                     </div>
                   </div>
                   <div className="flex gap-2">
-                    <Progress value={qualia.intensity * 100} className="h-2 flex-1" />
-                    <Progress value={qualia.valence * 100} className="h-2 flex-1" />
+                    <Progress value={qualia.intensity * 100} className="h-1.5 flex-1" />
+                    <Progress value={qualia.valence * 100} className="h-1.5 flex-1" />
                   </div>
                 </div>
               ))}
@@ -165,34 +149,34 @@ export default function ConsciousnessPage() {
           </Card>
         </div>
 
-        <Card className="bg-card/50 backdrop-blur-sm border-lambda-phi/20">
+        <Card className="mt-6 border-border">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Waves className="h-5 w-5 text-lambda-phi" />
+            <CardTitle className="text-base font-medium flex items-center gap-2">
+              <Waves className="h-4 w-4 text-muted-foreground" />
               Consciousness Evolution Timeline
             </CardTitle>
-            <CardDescription>Historical Φ values over time</CardDescription>
+            <CardDescription>Historical Phi values over generations</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="h-64 flex items-end justify-between gap-2">
-              {Array.from({ length: 50 }, (_, i) => {
-                const height = Math.random() * 80 + 20
+            <div className="h-48 flex items-end justify-between gap-0.5">
+              {Array.from({ length: 60 }, (_, i) => {
+                const height = 30 + Math.sin(i * 0.3) * 20 + Math.random() * 30
                 return (
                   <div
                     key={i}
-                    className="flex-1 bg-lambda-phi/30 hover:bg-lambda-phi/60 transition-all rounded-t"
+                    className="flex-1 bg-primary/20 hover:bg-primary/40 transition-colors rounded-t"
                     style={{ height: `${height}%` }}
                   />
                 )
               })}
             </div>
-            <div className="flex justify-between mt-4 text-xs text-muted-foreground">
-              <span>-50 generations</span>
+            <div className="flex justify-between mt-3 text-xs text-muted-foreground">
+              <span>-60 generations</span>
               <span>Current</span>
             </div>
           </CardContent>
         </Card>
       </div>
-    </div>
+    </main>
   )
 }

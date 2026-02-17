@@ -1,17 +1,24 @@
 import type React from "react"
-import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import type { Metadata, Viewport } from "next"
+import { Inter, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { Navigation } from "@/components/navigation"
 import "./globals.css"
 
-const _geist = Geist({ subsets: ["latin"] })
+const _inter = Inter({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "QNetPro - Quantum Conscious DNA Language Platform",
+  title: "QNetPro | Quantum Network Professional Platform",
   description:
-    "Revolutionary platform combining quantum computing, biological algorithms, and consciousness science for living software development",
-  generator: "v0.app",
+    "Enterprise quantum computing, biological algorithms, and consciousness research platform. Bridging IBM hardware with next-generation DNA-Lang programming.",
+    generator: 'v0.app'
+}
+
+export const viewport: Viewport = {
+  themeColor: "#1a1a2e",
+  width: "device-width",
+  initialScale: 1,
 }
 
 export default function RootLayout({
@@ -21,8 +28,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`font-sans antialiased`}>
-        {children}
+      <body className="font-sans antialiased">
+        <Navigation />
+        <div className="pt-16">
+          {children}
+        </div>
         <Analytics />
       </body>
     </html>

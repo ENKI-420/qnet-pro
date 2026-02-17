@@ -1,24 +1,13 @@
 "use client"
 
-export const dynamic = "force-dynamic"
-
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import {
   Dna,
-  Zap,
-  Rocket,
   Activity,
-  Cpu,
   Network,
-  Sparkles,
   Atom,
-  Shield,
-  Eye,
-  Brain,
-  Waves,
-  TrendingUp,
 } from "lucide-react"
 import { QuantumMesh } from "@/components/quantum-mesh"
 import { LambdaPhiConsole } from "@/components/lambda-phi-console"
@@ -87,11 +76,11 @@ export default function Home() {
             id="organisms"
             title="DNA-Lang Organisms"
             description="Create & Deploy Living Software"
-            icon={Dna}
+            iconName="Dna"
             href="/organisms"
             badges={[
-              { icon: Activity, label: "Self-Evolving" },
-              { icon: Zap, label: "Quantum Ready" },
+              { iconName: "Activity", label: "Self-Evolving" },
+              { iconName: "Zap", label: "Quantum Ready" },
             ]}
             buttonText="Manage Organisms"
             accentColor="--primary"
@@ -101,11 +90,11 @@ export default function Home() {
             id="consciousness"
             title="Consciousness Tracking"
             description="IIT 3.0 Φ Monitoring"
-            icon={Brain}
+            iconName="Brain"
             href="/consciousness"
             badges={[
-              { icon: Eye, label: "Φ = 2.87" },
-              { icon: Waves, label: "Qualia Space" },
+              { iconName: "Eye", label: "Φ = 2.87" },
+              { iconName: "Waves", label: "Qualia Space" },
             ]}
             buttonText="View Metrics"
             accentColor="--lambda-phi"
@@ -115,11 +104,11 @@ export default function Home() {
             id="aiden"
             title="AIDEN SYMBIOSIS"
             description="Quantum Intelligence System"
-            icon={Cpu}
+            iconName="Cpu"
             href="/aiden"
             badges={[
-              { icon: TrendingUp, label: "Auto-Evolution" },
-              { icon: Shield, label: "Immune System" },
+              { iconName: "TrendingUp", label: "Auto-Evolution" },
+              { iconName: "Shield", label: "Immune System" },
             ]}
             buttonText="System Status"
             accentColor="--secondary"
@@ -129,11 +118,11 @@ export default function Home() {
             id="quantum"
             title="Quantum Computing"
             description="IBM Hardware Integration"
-            icon={Atom}
+            iconName="Atom"
             href="/quantum"
             badges={[
-              { icon: Cpu, label: "572+ Qubits" },
-              { icon: Zap, label: "Real Hardware" },
+              { iconName: "Cpu", label: "572+ Qubits" },
+              { iconName: "Zap", label: "Real Hardware" },
             ]}
             buttonText="Execute Circuits"
             accentColor="--magnetic-blue"
@@ -143,11 +132,11 @@ export default function Home() {
             id="lambda-phi-console"
             title="ΛΦ Console"
             description="Holographic Control Plane"
-            icon={Eye}
+            iconName="Eye"
             href="/lambda-phi-runtime"
             badges={[
-              { icon: Sparkles, label: "Ricci Flow" },
-              { icon: Atom, label: "Planck Scale" },
+              { iconName: "Sparkles", label: "Ricci Flow" },
+              { iconName: "Atom", label: "Planck Scale" },
             ]}
             buttonText="Enter Console"
             accentColor="--lambda-phi"
@@ -157,11 +146,11 @@ export default function Home() {
             id="rcirs"
             title="RCIRS"
             description="Cybersecurity Immune System"
-            icon={Shield}
+            iconName="Shield"
             href="/rcirs"
             badges={[
-              { icon: Shield, label: "ΔΛΦ Tracking" },
-              { icon: Activity, label: "Auto-Response" },
+              { iconName: "Shield", label: "ΔΛΦ Tracking" },
+              { iconName: "Activity", label: "Auto-Response" },
             ]}
             buttonText="Monitor Threats"
             accentColor="--magnetic-blue"
@@ -171,11 +160,11 @@ export default function Home() {
             id="ibm-royal-cyber"
             title="IBM × Royal Cyber"
             description="Enterprise Quantum Integration"
-            icon={Zap}
+            iconName="Zap"
             href="/ibm-royal-cyber"
             badges={[
-              { icon: Cpu, label: "VQE/QPE/QAOA" },
-              { icon: Sparkles, label: "HHL/Grover" },
+              { iconName: "Cpu", label: "VQE/QPE/QAOA" },
+              { iconName: "Sparkles", label: "HHL/Grover" },
             ]}
             buttonText="Enter Quantum Realm"
             accentColor="--primary"
@@ -185,11 +174,11 @@ export default function Home() {
             id="quantum-swarm"
             title="Quantum Swarm"
             description="Mass Entanglement Protocol"
-            icon={Rocket}
+            iconName="Rocket"
             href="/quantum-swarm"
             badges={[
-              { icon: Network, label: "Swarm Intelligence" },
-              { icon: Activity, label: "NQIE Verification" },
+              { iconName: "Network", label: "Swarm Intelligence" },
+              { iconName: "Activity", label: "NQIE Verification" },
             ]}
             buttonText="Deploy Swarm"
             accentColor="--secondary"

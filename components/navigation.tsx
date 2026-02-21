@@ -1,97 +1,106 @@
 "use client"
 
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Search } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { useState } from "react"
+
+const navLinks = [
+  { href: "/", label: "Overview" },
+  { href: "/organisms", label: "Organisms" },
+  { href: "/consciousness", label: "Consciousness" },
+  { href: "/aiden", label: "AIDEN" },
+  { href: "/quantum", label: "Quantum" },
+  { href: "/ibm-royal-cyber", label: "IBM Partnership" },
+  { href: "/quantum-swarm", label: "Swarm" },
+]
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <nav
+      className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-md"
+      role="navigation"
+      aria-label="Main navigation"
+    >
+      <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center gap-2">
-            <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <div className="h-8 w-8 rounded-lg bg-accent flex items-center justify-center">
-                <span className="text-accent-foreground font-bold text-lg">Q</span>
+          <div className="flex items-center gap-8">
+            <Link href="/" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
+              <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
+                <span className="text-primary-foreground font-bold text-sm">Q</span>
               </div>
-              <span className="text-xl font-semibold">QNetPro</span>
+              <span className="text-base font-semibold tracking-tight">QNetPro</span>
             </Link>
+
+            <div className="hidden lg:flex items-center gap-1">
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`px-3 py-1.5 text-sm rounded-md transition-colors ${
+                      isActive
+                        ? "bg-secondary text-foreground font-medium"
+                        : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                )
+              })}
+            </div>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6">
-            <Link href="/docs" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+          <div className="hidden lg:flex items-center gap-3">
+            <Button variant="ghost" size="sm" className="text-muted-foreground">
               Docs
-            </Link>
-            <Link href="/showcase" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Showcase
-            </Link>
-            <Link href="/pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Pricing
-            </Link>
-            <Link href="/enterprise" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Enterprise
-            </Link>
-          </div>
-
-          {/* Right Actions */}
-          <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost" size="icon" aria-label="Search">
-              <Search className="h-4 w-4" />
-            </Button>
-            <Button variant="ghost" size="sm">
-              Sign In
             </Button>
             <Button size="sm">Get Started</Button>
           </div>
 
-          {/* Mobile Menu Button */}
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className="lg:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-border/40 bg-background">
-          <div className="px-4 py-6 space-y-4">
-            <Link href="/docs" className="block text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Docs
-            </Link>
-            <Link
-              href="/showcase"
-              className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Showcase
-            </Link>
-            <Link
-              href="/pricing"
-              className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Pricing
-            </Link>
-            <Link
-              href="/enterprise"
-              className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Enterprise
-            </Link>
-            <div className="pt-4 space-y-2">
-              <Button variant="ghost" className="w-full justify-start">
-                Sign In
+        <div className="lg:hidden border-t border-border bg-background">
+          <div className="px-4 py-4 space-y-1">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`block px-3 py-2.5 text-sm rounded-md transition-colors ${
+                    isActive
+                      ? "bg-secondary text-foreground font-medium"
+                      : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )
+            })}
+            <div className="pt-3 mt-3 border-t border-border flex flex-col gap-2">
+              <Button variant="ghost" size="sm" className="justify-start text-muted-foreground">
+                Docs
               </Button>
-              <Button className="w-full">Get Started</Button>
+              <Button size="sm">Get Started</Button>
             </div>
           </div>
         </div>

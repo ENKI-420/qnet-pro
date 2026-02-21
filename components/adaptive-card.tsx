@@ -4,15 +4,34 @@ import { useEffect, useState, useRef } from "react"
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import {
+  Dna,
+  Zap,
+  Rocket,
+  Activity,
+  Cpu,
+  Network,
+  Sparkles,
+  Atom,
+  Shield,
+  Eye,
+  Brain,
+  Waves,
+  TrendingUp,
+} from "lucide-react"
 import type { LucideIcon } from "lucide-react"
+
+const iconMap: Record<string, LucideIcon> = {
+  Dna, Zap, Rocket, Activity, Cpu, Network, Sparkles, Atom, Shield, Eye, Brain, Waves, TrendingUp,
+}
 
 interface AdaptiveCardProps {
   id: string
   title: string
   description: string
-  icon: LucideIcon
+  iconName: string
   href: string
-  badges: Array<{ icon: LucideIcon; label: string }>
+  badges: Array<{ iconName: string; label: string }>
   buttonText: string
   accentColor: string
 }
@@ -21,12 +40,13 @@ export function AdaptiveCard({
   id,
   title,
   description,
-  icon: Icon,
+  iconName,
   href,
   badges,
   buttonText,
   accentColor,
 }: AdaptiveCardProps) {
+  const Icon = iconMap[iconName] || Dna
   const [isHovered, setIsHovered] = useState(false)
   const [clickCount, setClickCount] = useState(0)
   const [optimizationLevel, setOptimizationLevel] = useState(0)
@@ -155,12 +175,15 @@ export function AdaptiveCard({
 
         <CardContent className="space-y-4">
           <div className="flex flex-wrap gap-2">
-            {badges.map((badge, index) => (
-              <Badge key={index} variant="secondary" className="animate-coherence-pulse">
-                <badge.icon className="h-3 w-3 mr-1" />
-                {badge.label}
-              </Badge>
-            ))}
+            {badges.map((badge, index) => {
+              const BadgeIcon = iconMap[badge.iconName] || Activity
+              return (
+                <Badge key={index} variant="secondary" className="animate-coherence-pulse">
+                  <BadgeIcon className="h-3 w-3 mr-1" />
+                  {badge.label}
+                </Badge>
+              )
+            })}
           </div>
 
           <Button className="w-full mt-4 bg-lambda-phi hover:bg-lambda-phi/80 shadow-lambda-phi">{buttonText}</Button>
